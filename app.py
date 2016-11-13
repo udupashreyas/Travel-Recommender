@@ -83,6 +83,7 @@ def response():
             artistic = a[i]['percentage']
     city_prob,cities = destination(source,[0.5263,0.2105,0.2632],dest_list,artistic)
     m,s = 0,''
+    full = {'NYC':'New York','BOS':'Boston','MIA':'Miami','LAX':'Los Angeles','ORD':'Orlando','SAN':'San Diego','SFO':'San Francisco','LAS':'Las Vegas','ANC':'Anchorage','DEN':'Denver'}
     for flight in parsed["results"]:
         if flight["destination"] in cities:
             if city_prob[flight["destination"]] > m:
@@ -90,7 +91,7 @@ def response():
     #twit_res = urlopen(twit_req)
     #result = twit_res.read()
     #twit_parsed = json.loads(twit_res)
-    return render_template('response.html', parsed=parsed, city_prob=city_prob, cities=cities, best=s)#, twit_parsed = twit_parsed)
+    return render_template('response.html', parsed=parsed, city_prob=city_prob, cities=cities, best=s, full=full)#, twit_parsed = twit_parsed)
 
 if __name__ == '__main__':
     # Bind to PORT/HOST if defined, otherwise default to 5050/localhost.

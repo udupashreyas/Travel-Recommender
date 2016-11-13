@@ -2,11 +2,18 @@
     <head>
         <title>Travel Recommender System</title>
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <style>
+          body {
+            font-family: 'Open Sans', serif;
+          }
+        </style>
     </head>
-    <body>
-        <div id="container" style="margin-top:10%;">
+    <body style="background-image:url('static/images/bg3.jpg')">
+        <div id="container" style="margin-top:10%;background:rgba(0,0,0,0.5);padding:20px;color:white;">
             <div class="title">
-                <h1 class="text-center">Find your best travel plan</h1>
+                <h1 class="text-center">Start your trip here</h1>
             </div>
             <div id="content" style="margin-top:5%;margin-left:35%">
                 <form method="post" action="{{ url_for('response') }}" id="myForm">
@@ -16,7 +23,18 @@
                         <label for="source">Source:</label>
                       </div>
                       <div class="col-xs-3">
-                        <input type="text" name="source" /><br />
+                        <select name="source" style="color:black">
+                          <option value="nyc">New York</option>
+                          <option value="bos">Boston</option>
+                          <option value="mia">Miami</option>
+                          <option value="lax">Los Angeles</option>
+                          <option value="ord">Orlando</option>
+                          <option value="san">San Diego</option>
+                          <option value="sfo">San Francisco</option>
+                          <option value="las">Las Vegas</option>
+                          <option value="anc">Anchorage</option>
+                          <option value="den">Denver</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -25,8 +43,8 @@
                       <div class="col-xs-3">
                         <label for="departure">Please enter departure date:</label>
                       </div>
-                      <div class="col-xs-3">
-                        <input type="text" name="departure" /><br />
+                      <div class="col-xs-3" style="color:black">
+                        <input type="text" name="departure" placeholder="YYYY-MM-DD" /><br />
                       </div>
                     </div>
                 </div>
@@ -35,8 +53,8 @@
                     <div class="col-xs-3">
                       <label for="duration">Please enter duration:</label>
                     </div>
-                    <div class="col-xs-3">
-                      <input type="text" name="duration" /><br />
+                    <div class="col-xs-3" style="color:black">
+                      <input type="text" name="duration" placeholder="Duration" /><br />
                     </div>
                   </div>
                 </div>
@@ -45,8 +63,8 @@
                     <div class="col-xs-3">
                       <label for="budget">Please enter budget:</label>
                     </div>
-                    <div class="col-xs-3">
-                      <input type="text" name="budget" /><br />
+                    <div class="col-xs-3" style="color:black">
+                      <input type="text" name="budget" placeholder="Budget" /><br />
                     </div>
                   </div>
                 </div>

@@ -2,31 +2,38 @@
     <head>
         <title>Travel Recommender System</title>
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <style>
+          body {
+            font-family: 'Open Sans', serif;
+          }
+        </style>
     </head>
-    <body>
+    <body style="background-image:url('../static/images/bg3.jpg')">
         <div id="container">
             <div class="title">
                 <h1 class="text-center">Your choices</h1>
             </div>
             <div id="content" class="table-responsive">
-                <table class="table">
+                <table class="table table-bordered">
                     <tr>
-                        <th>Destination</th>
-                        <th>Price</th>
-                        <th>Airline</th>
+                        <th class="text-center">Destination</th>
+                        <th class="text-center">Cost</th>
+                        <th class="text-center">Airline</th>
                     </tr>
                     {% for flight in parsed["results"] %}
                     <TR>
                         {% if flight["destination"] in cities %}
-                       <TD>{{flight["destination"]}}</TD>
-                       <TD>{{flight["price"]}}</TD>
-                       <TD>{{flight["airline"]}}</TD>
+                       <TD class="text-center">{{full[flight["destination"]]}}</TD>
+                       <TD class="text-center">${{flight["price"]}}</TD>
+                       <TD class="text-center">{{flight["airline"]}}</TD>
                        {% endif %}
                     </TR>
                     {% endfor %}
                 </table>
                 <h1 class="text-center">Your best choice</h1>
-                <h2 class="text-center">{{best}}</h2>
+                <h2 class="text-center">{{full[best]}}</h2>
             </div>
             </div>
         </div>
