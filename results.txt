@@ -1,0 +1,23 @@
+{
+  "images": [
+    {
+      "classifiers": [
+        {
+          "classes": [
+            {
+              "score": 0.28905, 
+              "class": "people", 
+              "type_hierarchy": "/people"
+            }
+          ], 
+          "classifier_id": "default", 
+          "name": "default"
+        }
+      ], 
+      "resolved_url": "http://static.snopes.com/wordpress/wp-content/uploads/2016/01/friends-reunion-2016.jpg", 
+      "source_url": "http://static.snopes.com/wordpress/wp-content/uploads/2016/01/friends-reunion-2016.jpg"
+    }
+  ], 
+  "custom_classes": 0, 
+  "images_processed": 1
+}

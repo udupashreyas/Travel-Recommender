@@ -1,0 +1,34 @@
+ <html>
+    <head>
+        <title>Travel Recommender System</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1 class="text-center">Your choices</h1>
+            </div>
+            <div id="content" class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Destination</th>
+                        <th>Price</th>
+                        <th>Airline</th>
+                    </tr>
+                    {% for flight in parsed["results"] %}
+                    <TR>
+                        {% if flight["destination"] in cities %}
+                       <TD>{{flight["destination"]}}</TD>
+                       <TD>{{flight["price"]}}</TD>
+                       <TD>{{flight["airline"]}}</TD>
+                       {% endif %}
+                    </TR>
+                    {% endfor %}
+                </table>
+                <h1 class="text-center">Your best choice</h1>
+                <h2 class="text-center">{{best}}</h2>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

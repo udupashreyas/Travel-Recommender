@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Travel Recommender System</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <div id="container" style="margin-top:10%;">
+            <div class="title">
+                <h1 class="text-center">Find your best travel plan</h1>
+            </div>
+            <div id="content" style="margin-top:5%;margin-left:35%">
+                <form method="post" action="{{ url_for('response') }}" id="myForm">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <label for="source">Source:</label>
+                      </div>
+                      <div class="col-xs-3">
+                        <input type="text" name="source" /><br />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <label for="departure">Please enter departure date:</label>
+                      </div>
+                      <div class="col-xs-3">
+                        <input type="text" name="departure" /><br />
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <label for="duration">Please enter duration:</label>
+                    </div>
+                    <div class="col-xs-3">
+                      <input type="text" name="duration" /><br />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <label for="budget">Please enter budget:</label>
+                    </div>
+                    <div class="col-xs-3">
+                      <input type="text" name="budget" /><br />
+                    </div>
+                  </div>
+                </div>
+                  <input type="submit" class="btn btn-default" style="margin-left:25%"/>
+                </form>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

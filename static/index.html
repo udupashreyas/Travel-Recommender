@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Travel Recommender System</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>Find your best travel plan</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="{{url_for('response')}}">
+                  <label for="source">Source:</label>
+                  <input type="text" name="source" /><br />
+                  <label for="departure">Please enter departure date:</label>
+                  <input type="text" name="departure" /><br />
+                  <label for="duration">Please enter duration:</label>
+                  <input type="text" name="duration" /><br />
+                  <label for="budget">Please enter budget:</label>
+                  <input type="text" name="budget" /><br />
+                  <label for="travel">Why do you like to travel?</label>
+                  <input type="text" name="travel" /><br />
+                  <input type="submit" />
+                </form>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
