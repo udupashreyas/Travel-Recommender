@@ -5,6 +5,12 @@ import json
 import numpy as np
 from urllib2 import Request, urlopen, URLError
 from watson_developer_cloud import PersonalityInsightsV2
+try:
+  from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
+  from SocketServer import TCPServer as Server
+except ImportError:
+  from http.server import SimpleHTTPRequestHandler as Handler
+  from http.server import HTTPServer as Server
 
 app = Flask(__name__)
 CORS(app, resources = r'/*')
@@ -52,7 +58,7 @@ def response():
     dur = request.form['duration']
     budget = request.form['budget']
     #travel = request.form['travel']
-    req = Request('http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?origin=' + source.upper() + '&departure_date=' + dep + '&duration=' + dur + '&max_price=' + budget + '&apikey=WOKmAmcIRrfN2G2ESJVgD1gzBG32ne8D')
+    req = Request('http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?origin=' + source.upper() + '&departure_date=' + dep + '&duration=' + dur + '&max_price=' + budget + '&apikey=' + os.environ.get('amadeus_api_key'))
     #print req
     #twit_req = Request("""https://e4e1fbbc-ff89-4f95-bd8f-27ce32389eb2:4O7bSNSVXE@cdeservice.mybluemix.net:443/api/v1/tracks
     #   HTTP/1.1 Content-Type: application/json{
@@ -95,6 +101,8 @@ def response():
 
 if __name__ == '__main__':
     # Bind to PORT/HOST if defined, otherwise default to 5050/localhost.
+    #port = int(os.getenv('PORT', 8000))
+    #httpd = Server(("", PORT), Handler)
     PORT = int(os.getenv('VCAP_APP_PORT', '5050'))
     HOST = str(os.getenv('VCAP_APP_HOST', 'localhost'))
-    app.run(host=HOST, port=PORT) 
+    app.run(host=HOST, port=PORT)

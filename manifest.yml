@@ -1,8 +1,7 @@
 applications:
-- path: .
-  memory: 128M
+- memory: 128M
   instances: 1
   domain: mybluemix.net
-  name: Travel recommender
-  host: Travel-recommender
+  name: itinerant
+  host: itinerant
   disk_quota: 1024M
